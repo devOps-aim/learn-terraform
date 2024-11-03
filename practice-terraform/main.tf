@@ -52,3 +52,23 @@ output "map1" {
 
 #we can declare an empty variable and we can get the value from the CLI
 
+variable "trainer_name" {}
+
+output "trainer_name" {
+  value = var.trainer_name
+}
+
+#for_each
+
+variable "fruits" {
+  default = {
+    apple  = {}
+    orange = {}
+    grape  = {}
+  }
+}
+
+resource "null_resource" "fruits" {
+  for_each = var.fruits
+}
+
